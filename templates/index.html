@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptop Price Predictor</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+        padding-top: 15%;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 500px;
+      }
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      input[type="checkbox"] {
+        margin: 10px 0;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #218838;
+      }
+
+      p {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;
+        color: #555;
+      }
+
+      .checkbox-group {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+      }
+
+      .checkbox-group input {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/" method="post">
+      <h1>Laptop Price Predictor</h1>
+
+      <input type="text" name="ram" placeholder="RAM (GB)" required />
+      <input type="text" name="weight" placeholder="Weight (kg)" required />
+
+      <select name="company" required>
+        <option value="" selected hidden>Select Company</option>
+        <option value="acer">Acer</option>
+        <option value="apple">Apple</option>
+        <option value="asus">Asus</option>
+        <option value="dell">Dell</option>
+        <option value="hp">HP</option>
+        <option value="lenovo">Lenovo</option>
+        <option value="msi">MSI</option>
+        <option value="toshiba">Toshiba</option>
+        <option value="other">Other</option>
+      </select>
+
+      <select name="typename" required>
+        <option value="" selected hidden>Select Type</option>
+        <option value="2in1convertible">2 in 1 Convertible</option>
+        <option value="gaming">Gaming</option>
+        <option value="netbook">Netbook</option>
+        <option value="notebook">Notebook</option>
+        <option value="ultrabook">Ultrabook</option>
+        <option value="workstation">Workstation</option>
+      </select>
+
+      <select name="opsys" required>
+        <option value="" selected hidden>Select Operating System</option>
+        <option value="windows">Windows</option>
+        <option value="mac">Mac</option>
+        <option value="linux">Linux</option>
+        <option value="other">Other</option>
+      </select>
+
+      <select name="cpuname" required>
+        <option value="" selected hidden>Select CPU</option>
+        <option value="intelcorei3">Intel Core i3</option>
+        <option value="intelcorei5">Intel Core i5</option>
+        <option value="intelcorei7">Intel Core i7</option>
+        <option value="amd">AMD</option>
+        <option value="other">Other</option>
+      </select>
+
+      <select name="gpuname" required>
+        <option value="" selected hidden>Select GPU</option>
+        <option value="intel">Intel</option>
+        <option value="amd">AMD</option>
+        <option value="nvidia">Nvidia</option>
+      </select>
+      <div class="checkbox-group">
+        <label for="touchscreen">
+          <input type="checkbox" name="touchscreen" /> Touch Screen
+        </label>
+
+        <label for="ips"> <input type="checkbox" name="ips" /> IPS </label>
+      </div>
+      <input type="submit" value="Predict" />
+
+      {% if pred != 0 %}
+      <p>Price: LKR{{ pred }}</p>
+      {% endif %}
+    </form>
+  </body>
+</html>
